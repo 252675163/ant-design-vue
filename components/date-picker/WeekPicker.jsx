@@ -8,13 +8,11 @@ import {
   getOptionProps,
   initDefaultProps,
   getComponentFromProp,
-  isValidElement,
   getListeners,
 } from '../_util/props-util';
 import BaseMixin from '../_util/BaseMixin';
 import { WeekPickerProps } from './interface';
 import interopDefault from '../_util/interopDefault';
-import { cloneElement } from '../_util/vnode';
 import InputIcon from './InputIcon';
 
 function formatValue(value, format) {
@@ -226,10 +224,11 @@ export default {
         openChange: this.handleOpenChange,
       },
       style: popupStyle,
+      scopedSlots: { default: input, ...$scopedSlots },
     };
     return (
       <span class={pickerClass}>
-        <VcDatePicker {...vcDatePickerProps}>{input}</VcDatePicker>
+        <VcDatePicker {...vcDatePickerProps} />
       </span>
     );
   },

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./antdv-demo/empty/demo/basic.md correctly 1`] = `
+exports[`renders ./antdv-demo/docs/empty/demo/basic.md correctly 1`] = `
 <div class="ant-empty">
   <div class="ant-empty-image"><svg width="184" height="152" viewBox="0 0 184 152" xmlns="http://www.w3.org/2000/svg">
       <g fill="none" fillRule="evenodd">
@@ -22,18 +22,18 @@ exports[`renders ./antdv-demo/empty/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./antdv-demo/empty/demo/config-provider.md correctly 1`] = `
+exports[`renders ./antdv-demo/docs/empty/demo/config-provider.md correctly 1`] = `
 <div><button type="button" role="switch" class="ant-switch"><span class="ant-switch-inner">default</span></button>
   <div role="separator" class="ant-divider ant-divider-horizontal"></div>
   <div class="config-provider">
     <h3>Select</h3>
     <div tabindex="0" class="ant-select ant-select-enabled" style="width: 200px;">
       <div role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-controls="test-uuid" class="ant-select-selection ant-select-selection--single">
-        <div class="ant-select-selection__rendered"></div><span unselectable="on" class="ant-select-arrow" style="user-select: none;"><i aria-label="icon: down" class="ant-select-arrow-icon anticon anticon-down"><svg viewBox="64 64 896 896" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></i></span>
+        <div class="ant-select-selection__rendered"></div><span unselectable="on" class="ant-select-arrow" style="user-select: none;"><i aria-label="icon: down" class="anticon anticon-down ant-select-arrow-icon"><svg viewBox="64 64 896 896" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></i></span>
       </div>
     </div>
-    <h3>TreeSelect</h3> <span role="combobox" aria-haspopup="listbox" tabindex="0" class="ant-select ant-select-enabled" style="width: 200px;"><span class="ant-select-selection ant-select-selection--single"><span class="ant-select-selection__rendered"><span class="ant-select-selection__placeholder"></span></span><span class="ant-select-arrow" style="outline: none;"><i aria-label="icon: down" class="ant-select-arrow-icon anticon anticon-down"><svg viewBox="64 64 896 896" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></i></span></span></span>
-    <h3>Cascader</h3> <span tabindex="0" class="ant-cascader-picker ant-cascader-picker-show-search" style="width: 200px;"><span class="ant-cascader-picker-label"></span><input placeholder="Please select" type="text" class="ant-input ant-cascader-input "><i aria-label="icon: down" class="ant-cascader-picker-arrow anticon anticon-down"><svg viewBox="64 64 896 896" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class="">
+    <h3>TreeSelect</h3> <span role="combobox" aria-haspopup="listbox" tabindex="0" class="ant-select ant-select-enabled" style="width: 200px;"><span class="ant-select-selection ant-select-selection--single"><span class="ant-select-selection__rendered"><span class="ant-select-selection__placeholder"></span></span><span class="ant-select-arrow" style="outline: none;"><i aria-label="icon: down" class="anticon anticon-down ant-select-arrow-icon"><svg viewBox="64 64 896 896" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></i></span></span></span>
+    <h3>Cascader</h3> <span tabindex="0" class="ant-cascader-picker ant-cascader-picker-show-search" style="width: 200px;"><span class="ant-cascader-picker-label"></span><input placeholder="Please select" type="text" class="ant-input ant-cascader-input "><i aria-label="icon: down" class="anticon anticon-down ant-cascader-picker-arrow"><svg viewBox="64 64 896 896" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class="">
         <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
       </svg></i></span>
     <h3>Transfer</h3>
@@ -150,7 +150,7 @@ exports[`renders ./antdv-demo/empty/demo/config-provider.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./antdv-demo/empty/demo/customize.md correctly 1`] = `
+exports[`renders ./antdv-demo/docs/empty/demo/customize.md correctly 1`] = `
 <div class="ant-empty">
   <div class="ant-empty-image" style="height: 60px;"><img alt="empty" src="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"></div>
   <p class="ant-empty-description"><span> Customize <a href="#API">Description</a></span></p>
@@ -158,7 +158,7 @@ exports[`renders ./antdv-demo/empty/demo/customize.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./antdv-demo/empty/demo/description.md correctly 1`] = `
+exports[`renders ./antdv-demo/docs/empty/demo/description.md correctly 1`] = `
 <div class="ant-empty">
   <div class="ant-empty-image"><svg width="184" height="152" viewBox="0 0 184 152" xmlns="http://www.w3.org/2000/svg">
       <g fill="none" fillRule="evenodd">
@@ -179,7 +179,7 @@ exports[`renders ./antdv-demo/empty/demo/description.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./antdv-demo/empty/demo/simple.md correctly 1`] = `
+exports[`renders ./antdv-demo/docs/empty/demo/simple.md correctly 1`] = `
 <div class="ant-empty ant-empty-normal">
   <div class="ant-empty-image"><svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(0 1)" fill="none" fillRule="evenodd">

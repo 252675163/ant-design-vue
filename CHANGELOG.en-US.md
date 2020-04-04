@@ -10,15 +10,29 @@
 
 ---
 
+## 1.5.1
+
+`2020-04-02`
+
+- 🐞 Fix `PageHeader` cannot hide backIcon [#1987](https://github.com/vueComponent/ant-design-vue/pull/1987)
+- 🐞 Fix `Pagination` doesn't update when total changes [#1989](https://github.com/vueComponent/ant-design-vue/pull/1989)
+- 🐞 Fix placeholder does not disappear when inputting `TreeSelect` in Chinese [#1994](https://github.com/vueComponent/ant-design-vue/pull/1994)
+- 🐞 Fix `Table` customRender cannot customize class style [#2004](https://github.com/vueComponent/ant-design-vue/pull/2004)
+- 🐞 Fix `Form` missing slot content when using Form.create [#1998](https://github.com/vueComponent/ant-design-vue/pull/1998)
+- 🐞 Fix `Textarea` scroll bar flickering problem [#1964](https://github.com/vueComponent/ant-design-vue/pull/1964)
+- 🌟 Add ts type file of `FormModel` [#1996](https://github.com/vueComponent/ant-design-vue/pull/1966)
+- 🌟 Add `modal` destroyAll type declaration [#1993](https://github.com/vueComponent/ant-design-vue/pull/1963)
+
 ## 1.5.0
 
-`2020-03-06`
+`2020-03-29`
 
 - Four new components have been added:
   - 🔥🔥🔥 [Mentions](https://antdv.com/components/mentions/) Added mentioned components and discarded the original Mention components.
   - 🔥🔥🔥 [Descriptions](https://antdv.com/components/descriptions/) Display multiple read-only fields in groups.
   - 🔥🔥🔥 [PageHeader](https://antdv.com/components/page-header/) can be used to declare the topic of the page, display important information about the page that the user is concerned about, and carry the operation items related to the current page.
   - 🔥🔥🔥 [Result](https://antdv.com/components/result) is used to feedback the processing results of a series of operation tasks.
+  - 🔥🔥🔥 [FormModel](https://antdv.com/components/form-model) Form components that use v-model for automatic validation are more concise than v-decorator forms.
 - 🔥 Descriptions supports vertical layout.
 - 🔥 Progress.Circle supports gradient colors.
 - 🔥 Progress.Line supports gradient colors.
@@ -80,6 +94,8 @@
 - 🌟 Badge supports custom colors.
 - 🐞 Fix the problem that the label of Steps is not centered.
 - 🐞 Fix cursor style problem of DatePicker and TimePicker.
+- 🐞 Fix `TreeSelect` custom icon is invalid [#1901](https://github.com/vueComponent/ant-design-vue/issues/1901)
+- 🐞 Fix `Tabs` keyboard left / right switching error [#1947](https://github.com/vueComponent/ant-design-vue/issues/1947)
 
 ## 1.4.12
 
@@ -549,8 +565,6 @@ Component Fixes / Enhancements:
 ## 1.2.0
 
 `2018-12-16`
-
-### Synchronize with antd 3.10.x
 
 - 🔥🔥🔥 replaced font icons with svg icons which bring benefits below:：
   - Complete offline usage of icon, no dependency of alipay cdn font icon file and no more empty square during downloading than no need to deploy icon font files locally either.

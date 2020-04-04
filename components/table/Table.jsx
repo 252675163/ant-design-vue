@@ -60,8 +60,6 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-const ROW_SELECTION_COLUMN_WIDTH = '62px';
-
 /**
  * Avoid creating new object, so that parent component's shouldComponentUpdate
  * can works appropriately。
@@ -492,13 +490,15 @@ export default {
         return getPopupContainer;
       }
       // Use undefined to let rc component use default logic.
-      return scroll && table ? () => table.tableNode : undefined;
+      return scroll && table ? () => table.getTableNode() : undefined;
     },
     scrollToFirstRow() {
       const { scroll } = this.$props;
       if (scroll && scroll.scrollToFirstRowOnChange !== false) {
         scrollTo(0, {
-          getContainer: () => this.$refs.vcTable.bodyTable,
+          getContainer: () => {
+            return this.$refs.vcTable.getBodyTable();
+          },
         });
       }
     },
@@ -1050,7 +1050,6 @@ export default {
         let filterDropdown;
         let sortButton;
         let customHeaderCell = column.customHeaderCell;
-        const title = this.renderColumnTitle(column.title);
         const isSortColumn = this.isSortColumn(column);
         if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
           const colFilters = key in filters ? filters[key] : [];
@@ -1210,8 +1209,8 @@ export default {
       const vcTableProps = {
         key: 'table',
         props: {
-          ...restProps,
           expandIcon: this.renderExpandIcon(prefixCls),
+          ...restProps,
           customRow: (record, index) => this.onRow(prefixCls, record, index),
           components: this.sComponents,
           prefixCls,

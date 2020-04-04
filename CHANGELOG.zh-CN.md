@@ -10,15 +10,29 @@
 
 ---
 
+## 1.5.1
+
+`2020-04-02`
+
+- 🐞 修复 `PageHeader` 不能隐藏 backIcon 问题 [#1987](https://github.com/vueComponent/ant-design-vue/pull/1987)
+- 🐞 修复 `Pagination` 的 total 变化时，不更新问题 [#1989](https://github.com/vueComponent/ant-design-vue/pull/1989)
+- 🐞 修复 `TreeSelect` 输入中文时 placeholder 不消失问题 [#1994](https://github.com/vueComponent/ant-design-vue/pull/1994)
+- 🐞 修复 `Table` customRender 不能自定义 class style 问题 [#2004](https://github.com/vueComponent/ant-design-vue/pull/2004)
+- 🐞 修复 `Form` 使用 Form.create 时，丢失插槽内容问题 [#1998](https://github.com/vueComponent/ant-design-vue/pull/1998)
+- 🐞 修复 `Textarea` 滚动条闪动问题 [#1964](https://github.com/vueComponent/ant-design-vue/pull/1964)
+- 🌟 添加 `FormModel` 的 ts 类型文件 [#1996](https://github.com/vueComponent/ant-design-vue/pull/1966)
+- 🌟 添加 `Modal` 的 destroyAll 类型声明 [#1993](https://github.com/vueComponent/ant-design-vue/pull/1963)
+
 ## 1.5.0
 
-`2020-03-06`
+`2020-03-29`
 
-- 新增了四个组件：
+- 新增了五个组件：
   - 🔥🔥🔥 [Mentions](https://antdv.com/components/mentions-cn/) 新增提及组件并废弃原有 Mention 组件。
   - 🔥🔥🔥 [Descriptions](https://antdv.com/components/descriptions-cn/) 成组展示多个只读字段。
   - 🔥🔥🔥 [PageHeader](https://antdv.com/components/page-header-cn/) 可用于声明页面主题、展示用户所关注的页面重要信息，以及承载与当前页相关的操作项。
   - 🔥🔥🔥 [Result](https://antdv.com/components/result) 用于反馈一系列操作任务的处理结果。
+  - 🔥🔥🔥 [FormModel](https://antdv.com/components/form-model) 使用 v-model 进行自动校验的表单组件，相较于 v-decorator 形式的表单，更加简洁。
 - 🔥 Descriptions 支持垂直布局。
 - 🔥 Progress.Circle 支持渐变色。
 - 🔥 Progress.Line 支持渐变色。
@@ -82,6 +96,8 @@
 - 🌟 Badge 支持自定义颜色。
 - 🐞 修复 Steps 的 label 不居中的问题。
 - 🐞 修复 DatePicker 和 TimePicker 的 cursor 样式问题。
+- 🐞 修复 TreeSelect 自定义图标无效的问题 [#1901](https://github.com/vueComponent/ant-design-vue/issues/1901)
+- 🐞 修复 Tabs 键盘左右切换错误问题 [#1947](https://github.com/vueComponent/ant-design-vue/issues/1947)
 
 ## 1.4.12
 
@@ -552,8 +568,6 @@
 ## 1.2.0
 
 `2018-12-16`
-
-### 与 antd 3.10.x 同步
 
 - 🔥🔥🔥 使用了 svg 图标替换了原先的 font 图标，从而带来了以下优势：
   - 可以离线化使用，不需要从支付宝 cdn 下载字体文件，图标不会因为网络问题呈现方块，也无需字体文件本地部署。
