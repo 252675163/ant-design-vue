@@ -7,7 +7,13 @@ const getWebpackConfig = require('../antd-tools/getWebpackConfig');
 // http://stackoverflow.com/q/25384360
 function ignoreMomentLocale(webpackConfig) {
   delete webpackConfig.module.noParse;
-  webpackConfig.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
+  webpackConfig.plugins.push(
+    new webpack.IgnorePlugin({
+      checkResource: function(res) {
+        return /^\.\/locale$/.test(res) || /moment$/.test(res);
+      },
+    }),
+  );
 }
 
 function addLocales(webpackConfig) {
