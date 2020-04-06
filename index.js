@@ -1,3 +1,4 @@
+alert(1)
 /* eslint no-console:0 */
 function camelCase(name) {
   return (

@@ -84,7 +84,7 @@ module.exports = {
     hot: true,
     open: true,
   },
-  devtool: '#source-map',
+  devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({

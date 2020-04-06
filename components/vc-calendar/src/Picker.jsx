@@ -7,7 +7,6 @@ import KeyCode from '../../_util/KeyCode';
 import placements from './picker/placements';
 import Trigger from '../../vc-trigger';
 import moment from 'moment';
-import { setTimeout } from 'timers';
 function isMoment(value) {
   if (Array.isArray(value)) {
     return (
