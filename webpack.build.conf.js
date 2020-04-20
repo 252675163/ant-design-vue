@@ -34,12 +34,16 @@ function externalMoment(config) {
   };
 }
 
+function toEcmaVersion5(webpackConfig) {
+  webpackConfig.output.ecmaVersion = 5;
+}
 const webpackConfig = getWebpackConfig(false);
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
     ignoreMomentLocale(config);
     externalMoment(config);
     addLocales(config);
+    toEcmaVersion5(config);
   });
 }
 
