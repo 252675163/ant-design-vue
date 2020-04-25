@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 // import * as Vue from 'vue';
 // import ref from 'vue-ref';
+import antVref from '../../_util/antv-ref';
 import BaseMixin from '../../_util/BaseMixin';
 import { initDefaultProps, getEvents, getListeners } from '../../_util/props-util';
 import { cloneElement } from '../../_util/vnode';
@@ -8,6 +9,7 @@ import ContainerRender from '../../_util/ContainerRender';
 import getScrollBarSize from '../../_util/getScrollBarSize';
 import { IDrawerProps } from './IDrawerPropTypes';
 import KeyCode from '../../_util/KeyCode';
+
 import {
   dataToArray,
   transitionEnd,
@@ -27,9 +29,9 @@ const windowIsUndefined = !(
   window.document.createElement
 );
 
-// Vue.use(ref, { name: 'ant-ref' });
 const Drawer = {
   mixins: [BaseMixin],
+  directives: { 'ant-ref': antVref },
   props: initDefaultProps(IDrawerProps, {
     prefixCls: 'drawer',
     placement: 'left',

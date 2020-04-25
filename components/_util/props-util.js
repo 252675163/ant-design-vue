@@ -1,4 +1,5 @@
 import isPlainObject from 'lodash/isPlainObject';
+import { h } from 'vue';
 import classNames from 'classnames';
 function getType(fn) {
   const match = fn && fn.toString().match(/^\s*function (\w+)/);
@@ -112,7 +113,6 @@ const getOptionProps = instance => {
 
 const getComponentFromProp = (instance, prop, options = instance, execute = true) => {
   if (instance.$createElement) {
-    const h = instance.$createElement;
     const temp = instance[prop];
     if (temp !== undefined) {
       return typeof temp === 'function' && execute ? temp(h, options) : temp;
@@ -124,7 +124,6 @@ const getComponentFromProp = (instance, prop, options = instance, execute = true
       undefined
     );
   } else {
-    const h = instance.context.$createElement;
     const temp = getPropsData(instance)[prop];
     if (temp !== undefined) {
       return typeof temp === 'function' && execute ? temp(h, options) : temp;

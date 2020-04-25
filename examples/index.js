@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import { createApp } from 'vue';
-import App from './App.vue';
+import App from './App2.vue';
 import 'ant-design-vue/style.js';
 
 const app = createApp({

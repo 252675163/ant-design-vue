@@ -1,4 +1,5 @@
 import PropTypes from './vue-types';
+import { Teleport, h, render } from 'vue';
 
 export default {
   props: {
@@ -53,8 +54,7 @@ export default {
         // self.getComponent 不要放在 render 中，会因为响应式数据问题导致，多次触发 render
         const com = { component: self.getComponent(props) };
         if (!this._component) {
-          this._component = new this.$root.constructor({
-            el,
+          let child = h({
             parent: self,
             data: {
               _com: com,
@@ -82,6 +82,8 @@ export default {
               return this.$data._com.component;
             },
           });
+          this._component = child;
+          render(h(Teleport, { to: el }, child), el);
         } else {
           this._component.setComponent(com);
         }

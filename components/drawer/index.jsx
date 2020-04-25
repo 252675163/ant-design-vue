@@ -3,6 +3,7 @@ import omit from 'omit.js';
 import VcDrawer from '../vc-drawer/src';
 import PropTypes from '../_util/vue-types';
 import BaseMixin from '../_util/BaseMixin';
+import { nextTick } from 'vue';
 import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
 import { getComponentFromProp, getOptionProps, getListeners } from '../_util/props-util';
 import { ConfigConsumerProps } from '../config-provider';
@@ -44,9 +45,9 @@ const Drawer = {
   },
   inject: {
     parentDrawer: {
-      default: () => null,
+      default: null,
     },
-    configProvider: { default: () => ConfigConsumerProps },
+    configProvider: { default: ConfigConsumerProps },
   },
   provide() {
     return {
@@ -62,7 +63,7 @@ const Drawer = {
     }
   },
   updated() {
-    this.$nextTick(() => {
+    nextTick(() => {
       if (this.preVisible !== this.visible && this.parentDrawer) {
         if (this.visible) {
           this.parentDrawer.push();
@@ -251,9 +252,9 @@ const Drawer = {
 };
 
 /* istanbul ignore next */
-Drawer.install = function(Vue) {
-  Vue.use(Base);
-  Vue.component(Drawer.name, Drawer);
-};
+// Drawer.install = function(Vue) {
+//   Vue.use(Base);
+//   Vue.component(Drawer.name, Drawer);
+// };
 
 export default Drawer;
