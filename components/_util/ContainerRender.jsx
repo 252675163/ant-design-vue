@@ -1,6 +1,5 @@
 import PropTypes from './vue-types';
-import { Teleport, h, render } from 'vue';
-
+import { nextTick, createApp, defineComponent, h } from 'vue';
 export default {
   props: {
     autoMount: PropTypes.bool.def(true),
@@ -12,7 +11,9 @@ export default {
     getContainer: PropTypes.func.isRequired,
     children: PropTypes.func.isRequired,
   },
-
+  data() {
+    return { cc: null };
+  },
   mounted() {
     if (this.autoMount) {
       this.renderComponent();
@@ -53,40 +54,42 @@ export default {
         }
         // self.getComponent 不要放在 render 中，会因为响应式数据问题导致，多次触发 render
         const com = { component: self.getComponent(props) };
-        if (!this._component) {
-          let child = h({
-            parent: self,
-            data: {
-              _com: com,
+        let PC = defineComponent({
+          parent: self,
+          data() {
+            return { _com: com };
+          },
+          created() {
+            self._component = this;
+          },
+          mounted() {
+            nextTick(() => {
+              if (ready) {
+                ready.call(self);
+              }
+            });
+          },
+          updated() {
+            nextTick(() => {
+              if (ready) {
+                ready.call(self);
+              }
+            });
+          },
+          methods: {
+            setComponent(_com) {
+              this.$data._com = _com;
             },
-            mounted() {
-              this.$nextTick(() => {
-                if (ready) {
-                  ready.call(self);
-                }
-              });
-            },
-            updated() {
-              this.$nextTick(() => {
-                if (ready) {
-                  ready.call(self);
-                }
-              });
-            },
-            methods: {
-              setComponent(_com) {
-                this.$data._com = _com;
-              },
-            },
-            render() {
-              return this.$data._com.component;
-            },
-          });
-          this._component = child;
-          render(h(Teleport, { to: el }, child), el);
-        } else {
-          this._component.setComponent(com);
-        }
+          },
+          render() {
+            return this.$data._com.component;
+          },
+        });
+        createApp({
+          setup() {
+            return () => h(PC);
+          },
+        }).mount(el);
       }
     },
   },

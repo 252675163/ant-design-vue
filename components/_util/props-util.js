@@ -124,6 +124,7 @@ const getComponentFromProp = (instance, prop, options = instance, execute = true
       undefined
     );
   } else {
+    debugger;
     const temp = getPropsData(instance)[prop];
     if (temp !== undefined) {
       return typeof temp === 'function' && execute ? temp(h, options) : temp;

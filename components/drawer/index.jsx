@@ -135,6 +135,7 @@ const Drawer = {
     },
     renderHeader(prefixCls) {
       const { closable, headerStyle } = this.$props;
+      debugger;
       const title = getComponentFromProp(this, 'title');
       if (!title && !closable) {
         return null;
@@ -183,7 +184,7 @@ const Drawer = {
         >
           {this.renderHeader(prefixCls)}
           <div key="body" class={`${prefixCls}-body`} style={bodyStyle}>
-            {this.$slots.default}
+            {this.$slots.default()}
           </div>
         </div>
       );
