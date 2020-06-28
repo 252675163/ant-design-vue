@@ -1,3 +1,4 @@
+import { inject } from 'vue';
 import PropTypes from '../_util/vue-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -5,7 +6,6 @@ import ResizeObserver from '../vc-resize-observer';
 import BaseMixin from '../_util/BaseMixin';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import { ConfigConsumerProps } from '../config-provider';
-import Base from '../base';
 import warning from '../_util/warning';
 import {
   addObserveTarget,
@@ -42,8 +42,10 @@ const Affix = {
   name: 'AAffix',
   props: AffixProps,
   mixins: [BaseMixin],
-  inject: {
-    configProvider: { default: () => ConfigConsumerProps },
+  setup() {
+    return {
+      configProvider: inject('configProvider', ConfigConsumerProps),
+    };
   },
   data() {
     return {
@@ -96,7 +98,7 @@ const Affix = {
       this.updatePosition();
     },
   },
-  beforeDestroy() {
+  beforeUnmount() {
     clearTimeout(this.timeout);
     removeObserveTarget(this);
     this.updatePosition.cancel();
@@ -237,10 +239,7 @@ const Affix = {
     const className = classNames({
       [getPrefixCls('affix', prefixCls)]: affixStyle,
     });
-
-    const props = {
-      attrs: omit($props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target']),
-    };
+    const props = omit($props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target']);
     return (
       <ResizeObserver
         onResize={() => {
@@ -249,7 +248,7 @@ const Affix = {
       >
         <div {...props} style={placeholderStyle} ref="placeholderNode">
           <div class={className} ref="fixedNode" style={affixStyle}>
-            {$slots.default}
+            {$slots.default && $slots.default()}
           </div>
         </div>
       </ResizeObserver>
@@ -258,9 +257,8 @@ const Affix = {
 };
 
 /* istanbul ignore next */
-Affix.install = function(Vue) {
-  Vue.use(Base);
-  Vue.component(Affix.name, Affix);
+Affix.install = function(app) {
+  app.component(Affix.name, Affix);
 };
 
 export default Affix;

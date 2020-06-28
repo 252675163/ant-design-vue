@@ -1,80 +1,19 @@
 <template>
   <div>
-    <a-button type="primary" @click="showDrawer">
-      Open
-    </a-button>
-    <a-drawer
-      title="Multi-level drawer"
-      width="520"
-      :closable="false"
-      :visible="visible"
-      style="color: red"
-      @close="onClose"
-    >
-      <template v-slot:handle>
-        <a-button @click="() => {}">
-          hahah
-        </a-button>
-      </template>
-      <a-button type="primary" @click="showChildrenDrawer">
-        Two-level drawer
-      </a-button>
-      <a-drawer
-        title="Two-level Drawer"
-        width="320"
-        :closable="false"
-        :visible="childrenDrawer"
-        @close="onChildrenDrawerClose"
-      >
-        <a-button type="primary" @click="showChildrenDrawer">
-          This is two-level drawer
-        </a-button>
-      </a-drawer>
-      <div
-        :style="{
-          position: 'absolute',
-          bottom: 0,
-          width: '100%',
-          borderTop: '1px solid #e8e8e8',
-          padding: '10px 16px',
-          textAlign: 'right',
-          left: 0,
-          background: '#fff',
-          borderRadius: '0 0 4px 4px',
-          boxSizing: 'border-box',
-        }"
-      >
-        <a-button style="marginRight: 8px" @click="onClose">
-          Cancel
-        </a-button>
-        <a-button type="primary" @click="onClose">
-          Submit
-        </a-button>
-      </div>
-    </a-drawer>
+    <demo />
   </div>
 </template>
 <script>
+import demo from '../antdv-demo/docs/input-number/demo/index';
+
 export default {
+  components: {
+    demo,
+  },
   data() {
     return {
-      visible: false,
-      childrenDrawer: false,
+      current: ['mail'],
     };
-  },
-  methods: {
-    showDrawer() {
-      this.visible = true;
-    },
-    onClose() {
-      this.visible = false;
-    },
-    showChildrenDrawer() {
-      this.childrenDrawer = true;
-    },
-    onChildrenDrawerClose() {
-      this.childrenDrawer = false;
-    },
   },
 };
 </script>

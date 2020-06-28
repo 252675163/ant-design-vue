@@ -1,7 +1,9 @@
+import { inject, provide, reactive } from 'vue';
 import PropTypes from '../_util/vue-types';
 import BaseMixin from '../_util/BaseMixin';
 import { ConfigConsumerProps } from '../config-provider';
 import ResponsiveObserve from '../_util/responsiveObserve';
+import { getSlot } from '../_util/props-util';
 
 const RowProps = {
   gutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
@@ -20,20 +22,24 @@ export default {
     ...RowProps,
     gutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]).def(0),
   },
-  provide() {
+  setup() {
+    const rowContext = reactive({
+      getGutter: undefined,
+    });
+    provide('rowContext', rowContext);
     return {
-      rowContext: this,
+      configProvider: inject('configProvider', ConfigConsumerProps),
+      rowContext,
     };
-  },
-  inject: {
-    configProvider: { default: () => ConfigConsumerProps },
   },
   data() {
     return {
       screens: {},
     };
   },
-
+  created() {
+    this.rowContext.getGutter = this.getGutter;
+  },
   mounted() {
     this.$nextTick(() => {
       this.token = ResponsiveObserve.subscribe(screens => {
@@ -48,7 +54,7 @@ export default {
       });
     });
   },
-  beforeDestroy() {
+  beforeUnmount() {
     ResponsiveObserve.unsubscribe(this.token);
   },
   methods: {
@@ -74,7 +80,7 @@ export default {
   },
 
   render() {
-    const { type, justify, align, prefixCls: customizePrefixCls, $slots } = this;
+    const { type, justify, align, prefixCls: customizePrefixCls } = this;
     const getPrefixCls = this.configProvider.getPrefixCls;
     const prefixCls = getPrefixCls('row', customizePrefixCls);
 
@@ -101,7 +107,7 @@ export default {
     };
     return (
       <div class={classes} style={rowStyle}>
-        {$slots.default}
+        {getSlot(this)}
       </div>
     );
   },
