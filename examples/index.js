@@ -2,6 +2,11 @@ import '@babel/polyfill';
 import { createApp } from 'vue';
 import App from './App.vue';
 import {
+  Badge,
+  AutoComplete,
+  Radio,
+  Spin,
+  Select,
   Input,
   InputNumber,
   Rate,
@@ -13,9 +18,13 @@ import {
   Tooltip,
   Col,
   Row,
+  FormModel,
+  Switch,
+  Checkbox,
   notification,
   message,
 } from 'ant-design-vue';
+
 import 'ant-design-vue/style.js';
 
 const basic = {
@@ -32,6 +41,8 @@ app
   .component('api', { ...basic })
   .component('CN', { ...basic })
   .component('US', { ...basic })
+  .use(Select)
+  .use(Spin)
   .use(Upload)
   .use(Button)
   .use(Icon)
@@ -42,5 +53,11 @@ app
   .use(Tooltip)
   .use(Col)
   .use(Row)
+  .use(Badge)
+  .use(Radio)
+  .use(Switch)
+  .use(Checkbox)
   .use(InputNumber)
+  .use(AutoComplete)
+  .use(FormModel)
   .mount('#app');

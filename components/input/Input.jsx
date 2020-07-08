@@ -5,6 +5,7 @@ import inputProps from './inputProps';
 import { hasProp, getComponent, getOptionProps } from '../_util/props-util';
 import { ConfigConsumerProps } from '../config-provider';
 import ClearableLabeledInput from './ClearableLabeledInput';
+import syncWatch from '../_util/syncWatch';
 
 function noop() {}
 
@@ -68,15 +69,12 @@ export default {
     };
   },
   watch: {
-    value(val) {
+    value: syncWatch(function(val) {
       this.stateValue = val;
-    },
+    }),
   },
   mounted() {
     this.$nextTick(() => {
-      if (this.autoFocus) {
-        this.focus();
-      }
       this.clearPasswordValueAttribute();
     });
   },
@@ -142,7 +140,6 @@ export default {
         'size',
         'inputType',
         'className',
-        'autoFocus',
         'inputPrefixCls',
         'loading',
       ]);
@@ -157,12 +154,17 @@ export default {
         }),
         ref: this.saveInput,
         key: 'ant-input',
+        onInput: handleChange,
+        onChange: noop,
       };
       // vue bug ？
       if (inputProps.maxLength === undefined) {
         delete inputProps.maxLength;
       }
-      return <input {...inputProps} onInput={handleChange} onChange={noop} />;
+      if (!inputProps.autoFocus) {
+        delete inputProps.autoFocus;
+      }
+      return <input {...inputProps} />;
     },
     clearPasswordValueAttribute() {
       // https://github.com/ant-design/ant-design/issues/20541
